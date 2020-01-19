@@ -20,6 +20,7 @@ let bgrp;
 let ot;
 let bldloss;
 let des;
+let bodypart;
 
 db.ref('patient').on('value',
     function (getdata) {
@@ -38,6 +39,7 @@ db.ref('patient').on('value',
             ot = p.otstatus;
             bldloss = p.bloodloss;
             des = p.discription;
+            bodypart = p.injuredbodyparts;
         }
 
 
@@ -46,11 +48,12 @@ db.ref('patient').on('value',
         <div id="get-card">
         <div id="info">
         <button class="btn" onclick = closecard()><i class="fa fa-close" style="color: white;"></i></button>
-            <br>
             <div class="textmain" id="pname">Patient Name: ${pname}</div>
             <div class="textmain" id="gender">Gender: ${gender}</div>
             <div class="textmain" id="bgrp">Blood Group: ${bgrp}</div>
-            <br>
+            <div class="textmain" id="bldloss">Blood Loss: ${bldloss} %</div>
+            <div class="textmain" id="bodypart">Injured Body Parts: ${bodypart}</div>
+            <div class="textmain" id="des">Description: ${des}</div>
             <button class="alertbtn" id="doctoralrt"><a class="example_c" >Alert Doctor</a></button>
             <button class="alertbtn" id="otstart"><a class="example_c" >Start OT</a></button>
         </div>

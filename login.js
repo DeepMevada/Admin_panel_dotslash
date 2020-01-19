@@ -17,14 +17,19 @@ const auth = firebase.auth();
 function signin() {
     var email = document.querySelector('[name="email"]')
     var password = document.querySelector('[name="password"]');
-    const next = auth.signInWithEmailAndPassword(email.value, password.value);
-    loadPage('main.html');
+    const next = auth.signInWithEmailAndPassword(email.value, password.value)
+        .then(function (firebaseUser) {
+            if(firebaseUser){
+                
+            }
+            else{
 
+            }
+        }).catch(function (error) { });
+
+    document.querySelector('form').reset();
 }
 
-function loadPage(href) {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", href, false);
-    xmlhttp.send();
-    return xmlhttp.responseText;
+function nextsite() {
+    window.location("main.html");
 }
