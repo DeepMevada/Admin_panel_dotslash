@@ -19,9 +19,7 @@ function signin() {
     var password = document.querySelector('[name="password"]');
 
     const next = auth.signInWithEmailAndPassword(email.value, password.value);
-
-    alert("Signed In");
-
+    next.catch(e => alert(e.message));
     loadPage('main.html');
 
 }

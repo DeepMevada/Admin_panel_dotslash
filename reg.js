@@ -13,13 +13,12 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
-console.log(auth);
+
 function signup() {
     var email = document.querySelector('[name="email"]')
     var password = document.querySelector('[name="password"]');
-    alert(email + " " + password);
+
 
     const next = auth.createUserWithEmailAndPassword(email.value, password.value);
-    console.log(next);
-    alert("Signed Up");
+    next.catch(e => alert(e.message));
 }
