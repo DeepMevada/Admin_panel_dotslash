@@ -17,9 +17,7 @@ const auth = firebase.auth();
 function signin() {
     var email = document.querySelector('[name="email"]')
     var password = document.querySelector('[name="password"]');
-
     const next = auth.signInWithEmailAndPassword(email.value, password.value);
-    next.catch(e => alert(e.message));
     loadPage('main.html');
 
 }
