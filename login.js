@@ -15,10 +15,10 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
 function signin() {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+    var email = document.querySelector('[name="email"]')
+    var password = document.querySelector('[name="password"]');
 
-    const next = auth.signInWithEmailAndPassword(email, password);
+    const next = auth.signInWithEmailAndPassword(email.value, password.value);
 
     alert("Signed In");
 
